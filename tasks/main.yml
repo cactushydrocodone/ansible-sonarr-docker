@@ -1,0 +1,32 @@
+---
+- name: create and run sonarr docker container
+  # SONARR
+  # https://sonarr.tv
+  # TV show downloaderer
+  docker_container:
+    name: sonarr
+    image: hotio/sonarr
+    restart_policy: unless-stopped
+    networks:
+      - name: "{{ proxy_network_name }}"
+    networks_cli_compatible: yes
+    state: started
+    env:
+      PUID="{{ user_uid }}"
+      PGID="{{ user_gid }}"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - "{{ docker_config_dir }}/sonarr:/config"
+    labels:
+      com.centurylinklabs.watchtower.enable="{{ watchtower_update }}"
+      traefik.enable=true
+      traefik.http.services.sonarr.loadbalancer.server.port=8989
+      traefik.http.middlewares.redirect-https.redirectScheme.scheme=https
+      traefik.http.middlewares.redirect-https.redirectScheme.permanent=true
+      traefik.http.routers.sonarr.rule=Host(`{{ sonarr_url }}`)
+      traefik.http.routers.sonarr.entrypoints=web
+      traefik.http.routers.sonarr.middlewares=redirect-https
+      traefik.http.routers.sonarr-https.rule=Host(`{{ sonarr_url }}`)
+      traefik.http.routers.sonarr-https.entrypoints=websecure
+      traefik.http.routers.sonarr-https.tls.certresolver=le-tls
+      traefik.http.routers.sonarr-https.service=sonarr

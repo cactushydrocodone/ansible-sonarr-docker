@@ -1,0 +1,7 @@
+---
+docker_config_dir: /opt/docker/
+sonarr_url: sonarr.tld.com
+proxy_network_name: traefik-proxy
+watchtower_update: true
+user_uid: 1000
+user_gid: 1000

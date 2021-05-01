@@ -1,6 +1,6 @@
 ansible-sonarr-docker
 =========
-[![Build Status](https://travis-ci.com/MedievalRoadie/ansible-nzbget-docker.svg?branch=main)](https://travis-ci.com/MedievalRoadie/ansible-nzbget-docker)
+[![Build Status](https://travis-ci.com/MedievalRoadie/ansible-sonarr-docker.svg?branch=main)](https://travis-ci.com/MedievalRoadie/ansible-sonarr-docker)
 
 Starts an instance of [hotio/sonarr](https://hotio.dev/containers/sonarr/)
 

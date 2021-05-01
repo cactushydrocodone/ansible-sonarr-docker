@@ -16,7 +16,7 @@ Role Variables
 
 * ```docker_config_dir```: a directory to output the container config to for persistance. Defaults to */opt/docker*
 * ```proxy_network_name```: the name of the docker network used for proxying to traefik. Defaults to *traefik-proxy*
-* ```sonarr_url```: the url to access nzbget through, via traefik. Defaults to *sonarr.tld.com*
+* ```sonarr_url```: the url to access sonarr through, via traefik. Defaults to *sonarr.tld.com*
 * ```watchtower_update```: determines if watchtower (if running) should include this container in its runs. Defaults to *true*
 * ```user_uid```: the user id of the user running sonarr. Defaults to *1000*
 * ```user_gid```: the user group id to run sonarr. Defaults to *1000*
@@ -35,7 +35,7 @@ Example Playbook
         vars:
           docker_config_dir: /a/different/dir
           proxy_network_name: proxy_network
-          nzbget_url: sonarr.mydomain.com
+          sonarr_url: sonarr.mydomain.com
           watchtower_update: false
           user_uid: 1002
           user_gid: 1002

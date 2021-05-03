@@ -17,6 +17,8 @@
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - "{{ docker_config_dir }}/sonarr:/config"
+      - "{{ download_dir }}:/download_dir"
+      - "{{ media_dir }}:/media_dir"
     labels:
       com.centurylinklabs.watchtower.enable="{{ watchtower_update }}"
       traefik.enable=true

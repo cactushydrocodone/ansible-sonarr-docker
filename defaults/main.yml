@@ -5,3 +5,5 @@ proxy_network_name: traefik-proxy
 watchtower_update: true
 user_uid: 1000
 user_gid: 1000
+download_dir:
+media_dir:

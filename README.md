@@ -20,6 +20,8 @@ Role Variables
 * ```watchtower_update```: determines if watchtower (if running) should include this container in its runs. Defaults to *true*
 * ```user_uid```: the user id of the user running sonarr. Defaults to *1000*
 * ```user_gid```: the user group id to run sonarr. Defaults to *1000*
+* ```download_dir```: directory where downloads are initially placed
+* ```media_dir```: media library directory
 
 Dependencies
 ------------

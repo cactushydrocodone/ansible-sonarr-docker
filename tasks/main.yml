@@ -9,7 +9,6 @@
     restart_policy: unless-stopped
     networks:
       - name: "{{ proxy_network_name }}"
-    networks_cli_compatible: yes
     state: started
     env:
       PUID="{{ user_uid }}"

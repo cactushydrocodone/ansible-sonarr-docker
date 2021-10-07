@@ -1,9 +1,9 @@
 ---
-docker_config_dir: /opt/docker/
+sonarr_docker_config_dir: /opt/docker/
 sonarr_url: sonarr.tld.com
-proxy_network_name: traefik-proxy
-watchtower_update: true
-user_uid: 1000
-user_gid: 1000
-download_dir:
-media_dir:
+sonarr_proxy_network_name: traefik-proxy
+sonarr_watchtower_update: true
+sonarr_user_uid: 1000
+sonarr_user_gid: 1000
+sonarr_download_dir:
+sonarr_media_dir:

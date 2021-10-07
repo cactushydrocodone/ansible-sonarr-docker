@@ -1,15 +1,14 @@
 ansible-sonarr-docker
 =========
-[![Build Status](https://travis-ci.com/MedievalRoadie/ansible-sonarr-docker.svg?branch=main)](https://travis-ci.com/MedievalRoadie/ansible-sonarr-docker)
 
 Starts an instance of [hotio/sonarr](https://hotio.dev/containers/sonarr/)
 
 Requirements
 ------------
 
-Mainly docker. I've taken to using [this geerlingguy playbook](https://galaxy.ansible.com/geerlingguy/docker/) to orchestrate installation of Docker & Docker Compose.
+Mainly docker. Uses [this geerlingguy playbook](https://galaxy.ansible.com/geerlingguy/docker/) to orchestrate installation of Docker & Docker Compose.
 
-This is also set up to use my own [traefik playbook](https://github.com/MedievalRoadie/ansible-traefik-docker) to do easy reverse proxying. 
+This is also set up to use the upstream maintainers [traefik playbook](https://github.com/MedievalRoadie/ansible-traefik-docker) to do easy reverse proxying. 
 
 Role Variables
 --------------
@@ -33,7 +32,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-      - role: medievalroadie.docker_sonarr
+      - role: raymondschnyder.docker_sonarr
         vars:
           sonarr_docker_config_dir: /a/different/dir
           sonarr_proxy_network_name: proxy_network

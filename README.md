@@ -14,14 +14,14 @@ This is also set up to use my own [traefik playbook](https://github.com/Medieval
 Role Variables
 --------------
 
-* ```docker_config_dir```: a directory to output the container config to for persistance. Defaults to */opt/docker*
-* ```proxy_network_name```: the name of the docker network used for proxying to traefik. Defaults to *traefik-proxy*
+* ```sonarr_docker_config_dir```: a directory to output the container config to for persistance. Defaults to */opt/docker*
+* ```sonarr_proxy_network_name```: the name of the docker network used for proxying to traefik. Defaults to *traefik-proxy*
 * ```sonarr_url```: the url to access sonarr through, via traefik. Defaults to *sonarr.tld.com*
-* ```watchtower_update```: determines if watchtower (if running) should include this container in its runs. Defaults to *true*
-* ```user_uid```: the user id of the user running sonarr. Defaults to *1000*
-* ```user_gid```: the user group id to run sonarr. Defaults to *1000*
-* ```download_dir```: directory where downloads are initially placed
-* ```media_dir```: media library directory
+* ```sonarr_watchtower_update```: determines if watchtower (if running) should include this container in its runs. Defaults to *true*
+* ```sonarr_user_uid```: the user id of the user running sonarr. Defaults to *1000*
+* ```sonarr_user_gid```: the user group id to run sonarr. Defaults to *1000*
+* ```sonarr_download_dir```: directory where downloads are initially placed
+* ```sonarr_media_dir```: media library directory
 
 Dependencies
 ------------
@@ -35,9 +35,9 @@ Example Playbook
       roles:
       - role: medievalroadie.docker_sonarr
         vars:
-          docker_config_dir: /a/different/dir
-          proxy_network_name: proxy_network
+          sonarr_docker_config_dir: /a/different/dir
+          sonarr_proxy_network_name: proxy_network
           sonarr_url: sonarr.mydomain.com
-          watchtower_update: false
-          user_uid: 1002
-          user_gid: 1002
+          sonarr_watchtower_update: false
+          sonarr_user_uid: 1002
+          sonarr_user_gid: 1002

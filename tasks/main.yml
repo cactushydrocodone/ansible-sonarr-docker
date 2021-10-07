@@ -8,18 +8,18 @@
     image: hotio/sonarr
     restart_policy: unless-stopped
     networks:
-      - name: "{{ proxy_network_name }}"
+      - name: "{{ sonarr_proxy_network_name }}"
     state: started
     env:
-      PUID="{{ user_uid }}"
-      PGID="{{ user_gid }}"
+      PUID="{{ sonarr_user_uid }}"
+      PGID="{{ sonarr_user_gid }}"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - "{{ docker_config_dir }}/sonarr:/config"
-      - "{{ download_dir }}:/download_dir"
-      - "{{ media_dir }}:/media_dir"
+      - "{{ sonarr_docker_config_dir }}/sonarr:/config"
+      - "{{ sonarr_download_dir }}:/download_dir"
+      - "{{ sonarr_media_dir }}:/media_dir"
     labels:
-      com.centurylinklabs.watchtower.enable="{{ watchtower_update }}"
+      com.centurylinklabs.watchtower.enable="{{ sonarr_watchtower_update }}"
       traefik.enable=true
       traefik.http.services.sonarr.loadbalancer.server.port=8989
       traefik.http.middlewares.redirect-https.redirectScheme.scheme=https
